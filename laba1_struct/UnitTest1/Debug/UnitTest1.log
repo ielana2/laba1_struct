@@ -1,0 +1,7 @@
+﻿  UnitTest1.cpp
+D:\Visual Studio\laba1_struct\main\List.cpp(103,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Visual Studio\laba1_struct\main\List.cpp(123,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Visual Studio\laba1_struct\main\List.cpp(141,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Visual Studio\laba1_struct\main\List.cpp(164,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Visual Studio\laba1_struct\main\List.cpp(187,20): warning C4018: <: несоответствие типов со знаком и без знака
+  UnitTest1.vcxproj -> D:\Visual Studio\laba1_struct\Debug\UnitTest1.dll
