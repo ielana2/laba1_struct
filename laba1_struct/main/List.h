@@ -1,30 +1,31 @@
 #pragma once
 
-class List {
+class List { //description of class for lists
 private:
-	void reset_list();
+	void reset_list(); //function to clear and reset all list
 
-	class Element
+	class Element //description of class for list's elements 
 	{
 	public:
-		Element(int inf, Element* next = nullptr, Element* prev = nullptr) {
+		Element(int inf, Element* next = nullptr, Element* prev = nullptr) { //constructor of element's parameters
 			this->information = inf;
 			this->next = next;
 			this->prev = prev;
 		};
-		~Element() {};
+		~Element() {}; //destructor of element's parameters
 
-		int information;
-		Element* prev, * next;
+		int information; //element's parameters
+		Element* prev, * next; 
 	};
 
-	Element* head, * tail;
+	Element* head, * tail; //list's parameters
 	size_t list_size;
 
 public:
-	List();
-	~List();
+	List(); //list-constructor
+	~List(); //list-destructor
 
+	//list's methods
 	void push_back(int);
 	void push_front(int);
 	void pop_back();

@@ -4,27 +4,27 @@
 
 using namespace std;
 
-void List::reset_list() {
+void List::reset_list() {//function to reset list's parameters
 	head = nullptr;
 	tail = nullptr;
 	list_size = 0;
 }
 
-List::List() {
+List::List() { //list's constructor
 	reset_list();
 }
 
-List::~List() {
-	if (head) {
-		while (head->next) {
+List::~List() { //list's destructor
+	if (head) { //if there id head pointer
+		while (head->next) { //while there is min two elements
 			head = head->next;
-			delete head->prev;
+			delete head->prev; 
 		}
 		reset_list();
 	}
 }
 
-void List::push_back(int inf) {
+void List::push_back(int inf) { //add element in the end of list
 	Element* current = new Element(inf);
 	current->next = nullptr;
 
@@ -40,7 +40,7 @@ void List::push_back(int inf) {
 	list_size++;
 }
 
-void List::push_front(int inf) {
+void List::push_front(int inf) { //add element in the front of the list
 	Element* current = new Element(inf);
 	current->prev = nullptr;
 	if (list_size == 0) {
@@ -55,7 +55,7 @@ void List::push_front(int inf) {
 	list_size++;
 }
 
-void List::pop_back() {
+void List::pop_back() { //delete last element in the list
 	if (list_size == 0)
 		throw out_of_range("List is empty");
 
@@ -72,7 +72,7 @@ void List::pop_back() {
 	}
 }
 
-void List::pop_front() {
+void List::pop_front() { //delete first element of the list
 	if (list_size == 0)
 		throw out_of_range("List is empty");
 
@@ -89,7 +89,7 @@ void List::pop_front() {
 	}
 }
 
-void List::insert(int inf, size_t index) {
+void List::insert(int inf, size_t index) { //insert element before element with chosen index
 	if (index > list_size - 1)
 		throw out_of_range("Index is greater than size of the list");
 
@@ -115,7 +115,7 @@ void List::insert(int inf, size_t index) {
 	}
 }
 
-int List::at(size_t index) {
+int List::at(size_t index) { //get element with chosen index
 	if (index > list_size - 1)
 		throw out_of_range("Index is greater than size of the list");
 
@@ -127,7 +127,7 @@ int List::at(size_t index) {
 	return current->information;
 }
 
-void List::remove(size_t index) {
+void List::remove(size_t index) { //delete element with chosen index
 	if (index > list_size - 1)
 		throw out_of_range("Index is greater than size of the list");
 
@@ -149,11 +149,11 @@ void List::remove(size_t index) {
 	}
 }
 
-size_t List::get_size() {
+size_t List::get_size() { //get the size of the list
 	return list_size;
 }
 
-void List::print_to_console() {
+void List::print_to_console() { //output of the list
 	system("CLS");
 
 	if (list_size == 0) {
@@ -170,7 +170,7 @@ void List::print_to_console() {
 	system("pause");
 }
 
-void List::clear() {
+void List::clear() { //clear the list
 	if (head) {
 		head->next = head;
 		delete head;
@@ -179,7 +179,7 @@ void List::clear() {
 	reset_list();
 }
 
-void List::set(size_t index, int change_inf) {
+void List::set(size_t index, int change_inf) { //change element with chosen index with new element
 	if (index > list_size - 1)
 		throw out_of_range("Index is greater than size of the list");
 
@@ -191,14 +191,14 @@ void List::set(size_t index, int change_inf) {
 	current->information = change_inf;
 }
 
-bool List::isEmpty() {
+bool List::isEmpty() { //check if the list is empty
 	if (list_size == 0)
 		return true;
 	else
 		return false;
 }
 
-void List::push_front(List Another_List) {
+void List::push_front(List Another_List) { //adding another list in front of chosen list
 	head->prev = Another_List.tail;
 	Another_List.tail->next = head;
 	head = Another_List.head;
